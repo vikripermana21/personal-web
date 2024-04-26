@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    @keyframes fill-text {
+        to{
+            background-position-x: 0em, 0 ;
+        }
+    }
+
+    @keyframes parallax-movement {
+        to {
+            transform: translateY(70%);
+        }
+    }
+}
+
+@layer components{
+    .reveal-text{
+    --faded-color:#ccc;
+    --highlighted-color:#348FA1;
+    background-image: linear-gradient(to right,var(--highlighted-color),var(--highlighted-color)),linear-gradient(to right,var(--faded-color),var(--faded-color));
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-position-x: -400em,0;
+    color: transparent;
+    display: inline;
+    animation:fill-text linear both;
+    animation-timeline: --reveal-wrapper;
+    animation-range: entry 200% cover 80%;
+    }
+
+    .parallax-image{
+        transform: translateY(0px);
+        animation: parallax-movement linear both;
+        animation-timeline: --parallax-wrapper;
+        animation-range: entry 50% cover 80%;
+    }
+}
