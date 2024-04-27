@@ -1,6 +1,5 @@
-import { ReactElement, useMemo, useState } from "react";
+import { ReactElement, useMemo } from "react";
 import "./App.css";
-import HeroImage from "/images/hero-image.png";
 import { FaChevronDown } from "react-icons/fa";
 import ParallaxImage from "./components/ParallaxImage";
 import Project1 from "/images/project-1.png";

@@ -1,5 +1,3 @@
-import React from "react";
-
 const TooltipText = ({ text, tooltip }: { text: string; tooltip: string }) => {
   return (
     <div className="relative group cursor-pointer hover:underline">
