@@ -24,6 +24,7 @@ export default {
       "sub-header": "#525d6e",
       white: "white",
       icons: "#ccc",
+      link: "#0692ff",
     },
     extend: {},
   },

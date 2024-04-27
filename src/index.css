@@ -14,12 +14,19 @@
             transform: translateY(70%);
         }
     }
+
+    @keyframes scale-up {
+        to{
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 }
 
 @layer components{
     .reveal-text{
     --faded-color:#ccc;
-    --highlighted-color:#348FA1;
+    --highlighted-color:#333;
     background-image: linear-gradient(to right,var(--highlighted-color),var(--highlighted-color)),linear-gradient(to right,var(--faded-color),var(--faded-color));
     background-clip: text;
     background-repeat: no-repeat;
@@ -36,5 +43,13 @@
         animation: parallax-movement linear both;
         animation-timeline: --parallax-wrapper;
         animation-range: entry 50% cover 80%;
+    }
+
+    .scale-up-text{
+        transform: scale(0);
+        opacity: 0;
+        animation: scale-up linear both;
+        animation-timeline: --scale-up-wrapper ;
+        animation-range: entry 50% cover 50%;
     }
 }

@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { RiArrowRightLine } from "react-icons/ri";
 
 type ParallaxImageProps = {
   header: string;
@@ -6,6 +7,7 @@ type ParallaxImageProps = {
   image: string;
   icons: ReactElement[];
   imageSide: "R" | "L";
+  link: string;
 };
 
 const ParallaxImage = ({
@@ -14,6 +16,7 @@ const ParallaxImage = ({
   icons,
   image,
   imageSide,
+  link = "",
 }: ParallaxImageProps) => {
   return (
     <div
@@ -30,6 +33,17 @@ const ParallaxImage = ({
           <div className="flex gap-5 text-size-sub-header text-icons">
             {icons.map((item: any) => item)}
           </div>
+          {link !== "" && (
+            <div
+              className="flex gap-3 items-center cursor-pointer hover:font-semibold transition-all text-link w-fit"
+              onClick={() => {
+                window.open(link, "_blank");
+              }}
+            >
+              <p>Visit Website</p>
+              <RiArrowRightLine />
+            </div>
+          )}
         </div>
       </div>
       <div className="p-10 w-1/2 z-20">

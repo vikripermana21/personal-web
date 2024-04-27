@@ -22,6 +22,7 @@ function App() {
           <SiStyledcomponents className="hover:text-styled-components transition-all" />,
           <RiBootstrapFill className="hover:text-bootstrap transition-all" />,
         ],
+        link: "https://vikripermana21.github.io/portfolio/",
       },
       {
         description:
@@ -32,16 +33,18 @@ function App() {
           <SiTailwindcss className="hover:text-tailwind transition-all" />,
           <FiFramer className="hover:text-framer transition-all" />,
         ],
+        link: "https://vikripermana21.vercel.app",
       },
       {
         description:
-          "This is a non-commercial Spotify clone for educational purposes, showcasing basic music streaming functionalities. It's designed to help developers learn web development through a practical project. Sadly :(, i cannot release this one due to Spotify permission",
+          "This is a non-commercial Spotify clone for educational purposes, showcasing basic music streaming functionalities. It's designed to help me learn web development through a practical project. Sadly :(, i cannot release this one due to Spotify permission",
         image: Project3,
         icons: [
           <RiReactjsLine className="hover:text-react transition-all" />,
           <SiTailwindcss className="hover:text-tailwind transition-all" />,
           <FiFramer className="hover:text-framer transition-all" />,
         ],
+        link: "",
       },
     ];
   }, []);
@@ -49,12 +52,12 @@ function App() {
   return (
     <>
       {/* Hero Section */}
-      <div className="h-screen w-screen flex relative z-20">
-        <img
+      <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
+        {/* <img
           src={HeroImage}
           alt=""
           className="w-full h-full object-cover absolute"
-        />
+        /> */}
         <div className="z-30 w-full h-full bg-black/15 flex py-10 px-36 justify-end flex-col gap-10">
           <p className="text-size-header font-serif font-semibold leading-header text-white">
             Hello, <br /> I'm Vikri
@@ -88,6 +91,7 @@ function App() {
             description: string;
             image: string;
             icons: ReactElement[];
+            link: string;
           },
           index
         ) => (
@@ -97,11 +101,14 @@ function App() {
             description={item.description}
             image={item.image}
             icons={item.icons}
+            link={item.link}
           />
         )
       )}
-      <div className="w-screen h-screen flex justify-center items-center">
-        <p>Hello World</p>
+      <div className="w-screen h-screen flex justify-center [view-timeline-name:--scale-up-wrapper]">
+        <p className="font-serif text-size-header scale-up-text">
+          Get in touch with <b>Me</b> !
+        </p>
       </div>
     </>
   );
