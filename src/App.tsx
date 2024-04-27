@@ -51,9 +51,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="w-screen h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
+      <div className="h-full w-full flex bg-framer/40 backdrop-blur relative z-20">
         {/* <img
           src={HeroImage}
           alt=""
@@ -69,7 +69,7 @@ function App() {
       {/* Hero Section */}
       {/* Text Section */}
       <div className="mt-[-100vh] h-[400vh] [view-timeline-name:--reveal-wrapper]">
-        <div className="h-screen w-screen sticky top-0 flex items-center justify-cente p-72">
+        <div className="h-screen w-screen sticky top-0 flex items-center justify-center p-72">
           <div>
             <p className="font-mono text-[24px] font-semibold reveal-text">
               Meet the unstoppable learner, Vikri Permana! This English-speaking
@@ -106,7 +106,7 @@ function App() {
           />
         )
       )}
-      <div className="w-screen h-screen flex flex-col items-center [view-timeline-name:--scale-up-wrapper] relative">
+      <div className="w-full h-full flex flex-col items-center [view-timeline-name:--scale-up-wrapper] relative">
         <p className="font-serif text-size-header scale-up-text">
           Get in touch with <b>Me</b> !
         </p>
@@ -125,7 +125,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
