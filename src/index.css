@@ -52,4 +52,10 @@
         animation-timeline: --scale-up-wrapper ;
         animation-range: entry 50% cover 50%;
     }
+    .scale-up-text-2{
+        opacity: 0;
+        animation: scale-up linear both;
+        animation-timeline: --scale-up-wrapper;
+        animation-range: entry 80% cover 50%;
+    }
 }

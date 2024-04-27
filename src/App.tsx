@@ -6,9 +6,11 @@ import ParallaxImage from "./components/ParallaxImage";
 import Project1 from "/images/project-1.png";
 import Project2 from "/images/project-2.png";
 import Project3 from "/images/project-3.png";
+import FooterImage from "/images/footer.png";
 import { RiBootstrapFill, RiReactjsLine, RiVuejsLine } from "react-icons/ri";
 import { SiStyledcomponents, SiTailwindcss } from "react-icons/si";
 import { FiFramer } from "react-icons/fi";
+import TooltipText from "./components/TooltipText";
 
 function App() {
   const projects = useMemo(() => {
@@ -105,10 +107,24 @@ function App() {
           />
         )
       )}
-      <div className="w-screen h-screen flex justify-center [view-timeline-name:--scale-up-wrapper]">
+      <div className="w-screen h-screen flex flex-col items-center [view-timeline-name:--scale-up-wrapper] relative">
         <p className="font-serif text-size-header scale-up-text">
           Get in touch with <b>Me</b> !
         </p>
+        <div className="font-mono flex gap-14 h-1/4 items-center scale-up-text-2 z-20">
+          <TooltipText text="vikripermana91@gmail.com" tooltip="Email" />
+          <TooltipText text="vikri permana" tooltip="Linked In" />
+          <TooltipText text="vkrprmn" tooltip="Instagram" />
+          <TooltipText text="ordinaryboy" tooltip="Spotify" />
+        </div>
+        <div className="absolute bottom-0">
+          <img src={FooterImage} className="object-cover z-0" alt="" />
+          <div className="absolute bottom-0 w-full">
+            <p className="flex items-center justify-center font-mono">
+              2024 - VIKRI PERMANA
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
