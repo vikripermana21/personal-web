@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="w-screen h-screen overflow-x-hidden">
       {/* Hero Section */}
       <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
         <div className="z-30 w-full h-full bg-black/15 flex lg:py-10 lg:px-36 py-2 px-5 justify-end flex-col gap-10">
@@ -120,7 +120,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
