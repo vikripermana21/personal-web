@@ -54,13 +54,8 @@ function App() {
     <>
       {/* Hero Section */}
       <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
-        {/* <img
-          src={HeroImage}
-          alt=""
-          className="w-full h-full object-cover absolute"
-        /> */}
-        <div className="z-30 w-full h-full bg-black/15 flex py-10 px-36 justify-end flex-col gap-10">
-          <p className="text-size-header font-serif font-semibold leading-header text-white">
+        <div className="z-30 w-full h-full bg-black/15 flex lg:py-10 lg:px-36 py-2 px-5 justify-end flex-col gap-10">
+          <p className="lg:text-size-header text-[48px] font-serif font-semibold leading-header text-white">
             Hello, <br /> I'm Vikri
           </p>
           <FaChevronDown className="text-white text-size-icons animate-bounce" />
@@ -69,9 +64,9 @@ function App() {
       {/* Hero Section */}
       {/* Text Section */}
       <div className="mt-[-100vh] h-[400vh] [view-timeline-name:--reveal-wrapper]">
-        <div className="h-screen w-screen sticky top-0 flex items-center justify-cente p-72">
+        <div className="h-screen w-screen sticky top-0 flex items-center justify-cente lg:p-72 p-3">
           <div>
-            <p className="font-mono text-[24px] font-semibold reveal-text">
+            <p className="font-mono lg:text-[24px] text-[12px] font-semibold reveal-text">
               Meet the unstoppable learner, Vikri Permana! This English-speaking
               dynamo tackles challenges with unwavering grit, soaking up
               knowledge like a sponge. When work's done, he flips the switch to
@@ -106,11 +101,11 @@ function App() {
           />
         )
       )}
-      <div className="w-screen h-screen flex flex-col items-center [view-timeline-name:--scale-up-wrapper] relative">
-        <p className="font-serif text-size-header scale-up-text">
+      <div className="w-screen h-screen flex flex-col items-center pt-48 lg:p-0 [view-timeline-name:--scale-up-wrapper] relative">
+        <p className="font-serif text-[42px] text-center lg:text-size-header scale-up-text">
           Get in touch with <b>Me</b> !
         </p>
-        <div className="font-mono flex gap-14 h-1/4 items-center scale-up-text-2 z-20">
+        <div className="font-mono flex flex-wrap items-center justify-center gap-14 h-1/4 scale-up-text-2 z-20 my-10 p-5">
           <TooltipText text="vikripermana91@gmail.com" tooltip="Email" />
           <TooltipText text="vikri permana" tooltip="Linked In" />
           <TooltipText text="vkrprmn" tooltip="Instagram" />

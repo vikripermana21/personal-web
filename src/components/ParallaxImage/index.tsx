@@ -24,7 +24,7 @@ const ParallaxImage = ({
         imageSide === "R" ? "flex-row" : "flex-row-reverse"
       } [view-timeline-name:--parallax-wrapper]`}
     >
-      <div className="flex w-1/2 justify-center p-10">
+      <div className="flex w-full lg:w-1/2 justify-center p-10">
         <div className="flex flex-col  parallax-image gap-3">
           <p className="text-size-sub-header font-serif font-semibold">
             {header}
@@ -46,7 +46,7 @@ const ParallaxImage = ({
           )}
         </div>
       </div>
-      <div className="p-10 w-1/2 z-20">
+      <div className="p-10 w-1/2 z-20 hidden lg:block">
         <img src={image} alt="" />
       </div>
     </div>
