@@ -5,11 +5,13 @@ import ParallaxImage from "./components/ParallaxImage";
 import Project1 from "/images/project-1.png";
 import Project2 from "/images/project-2.png";
 import Project3 from "/images/project-3.png";
+import Project4 from "/images/project-4.jpg";
 import FooterImage from "/images/footer.png";
 import { RiBootstrapFill, RiReactjsLine, RiVuejsLine } from "react-icons/ri";
 import { SiStyledcomponents, SiTailwindcss } from "react-icons/si";
 import { FiFramer } from "react-icons/fi";
 import TooltipText from "./components/TooltipText";
+import { TbBrandThreejs } from "react-icons/tb";
 
 function App() {
   const projects = useMemo(() => {
@@ -46,6 +48,16 @@ function App() {
           <FiFramer className="hover:text-framer transition-all" />,
         ],
         link: "",
+      },
+      {
+        description:
+          "Utilizing React and Three.js, I developed a simple `hello world` 3D web application that seamlessly integrates dynamic user interfaces with real-time 3D graphics.",
+        image: Project4,
+        icons: [
+          <RiReactjsLine className="hover:text-react transition-all" />,
+          <TbBrandThreejs className="hover:text-three transition-all" />,
+        ],
+        link: "https://hello-world-olive-two.vercel.app/",
       },
     ];
   }, []);
@@ -101,7 +113,7 @@ function App() {
           />
         )
       )}
-      <div className="w-screen h-screen flex flex-col items-center pt-48 lg:p-0 [view-timeline-name:--scale-up-wrapper] relative">
+      <div className="w-screen h-screen flex flex-col items-center pt-48 lg:p-0 [view-timeline-name:--scale-up-wrapper] relative mt-24">
         <p className="font-serif text-[42px] text-center lg:text-size-header scale-up-text">
           Get in touch with <b>Me</b> !
         </p>
