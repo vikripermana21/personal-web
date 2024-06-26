@@ -15,6 +15,7 @@ export default {
       header: 1.25,
     },
     colors: {
+      three: "#222",
       vue: "#41b883",
       react: "#139eca",
       tailwind: "#37bcf8",
