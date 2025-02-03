@@ -6,15 +6,11 @@ export default {
       serif: ["ui-serif", '"Source Serif 4"'],
       mono: ["ui-mono", '"Roboto Mono", monospace'],
     },
-    fontSize: {
-      "size-header": "128px",
-      "size-sub-header": "40px",
-      "size-icons": "32px",
-    },
     lineHeight: {
       header: 1.25,
     },
     colors: {
+      smoke: "#878787",
       three: "#222",
       vue: "#41b883",
       react: "#139eca",

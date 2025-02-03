@@ -1,17 +1,20 @@
+import { Canvas } from "@react-three/fiber";
+import { AnimatePresence, motion } from "motion/react";
 import { ReactElement, useMemo } from "react";
+import { FiFramer } from "react-icons/fi";
+import { RiBootstrapFill, RiReactjsLine, RiVuejsLine } from "react-icons/ri";
+import { SiStyledcomponents, SiTailwindcss } from "react-icons/si";
+import { TbBrandThreejs } from "react-icons/tb";
 import "./App.css";
-import { FaChevronDown } from "react-icons/fa";
+import HeroSection from "./components/HeroSection";
 import ParallaxImage from "./components/ParallaxImage";
+import TooltipText from "./components/TooltipText";
+import FooterImage from "/images/footer.png";
 import Project1 from "/images/project-1.png";
 import Project2 from "/images/project-2.png";
 import Project3 from "/images/project-3.png";
 import Project4 from "/images/project-4.jpg";
-import FooterImage from "/images/footer.png";
-import { RiBootstrapFill, RiReactjsLine, RiVuejsLine } from "react-icons/ri";
-import { SiStyledcomponents, SiTailwindcss } from "react-icons/si";
-import { FiFramer } from "react-icons/fi";
-import TooltipText from "./components/TooltipText";
-import { TbBrandThreejs } from "react-icons/tb";
+import RandomDecoration from "./components/RandomDecoration";
 
 function App() {
   const projects = useMemo(() => {
@@ -65,20 +68,38 @@ function App() {
   return (
     <div className="w-screen h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, delay: 1 }}
+          className="w-screen h-screen fixed top-0 -z-10"
+        >
+          <Canvas className="">
+            <HeroSection />
+          </Canvas>
+        </motion.div>
+      </AnimatePresence>
+      {/* <div className="h-screen w-screen flex bg-framer/40 backdrop-blur relative z-20">
         <div className="z-30 w-full h-full bg-black/15 flex lg:py-10 lg:px-36 py-2 px-5 justify-end flex-col gap-10">
           <p className="lg:text-size-header text-[48px] font-serif font-semibold leading-header text-white">
             Hello, <br /> I'm Vikri
           </p>
           <FaChevronDown className="text-white text-size-icons animate-bounce" />
         </div>
-      </div>
+      </div> */}
       {/* Hero Section */}
       {/* Text Section */}
-      <div className="mt-[-100vh] h-[400vh] [view-timeline-name:--reveal-wrapper]">
-        <div className="h-screen w-screen sticky top-0 flex items-center justify-cente lg:p-72 p-3">
-          <div>
-            <p className="font-mono lg:text-[24px] text-[12px] font-semibold reveal-text">
+      <div className="h-[400vh] [view-timeline-name:--reveal-wrapper]">
+        <div className="h-screen w-screen sticky top-0 flex items-center justify-center lg:p-72 p-3">
+          {/* <div className="absolute top-0 w-full h-full z-0">
+            <Canvas className="">
+              <HeroSection />
+            </Canvas>
+          </div> */}
+          <div className="relative z-20">
+            <p className="font-mono lg:text-[24px] text-[12px] font-semibold reveal-text z-20">
               Meet the unstoppable learner, Vikri Permana! This English-speaking
               dynamo tackles challenges with unwavering grit, soaking up
               knowledge like a sponge. When work's done, he flips the switch to
@@ -93,7 +114,38 @@ function App() {
         </div>
       </div>
       {/* End Text Section */}
-      {projects.map(
+      <div className="h-1/2 w-full bg-three flex items-center justify-center text-white">
+        <div className="w-1/3 h-full flex justify-center items-center p-5">
+          <div className="w-full h-full">
+            <Canvas>
+              <RandomDecoration />
+            </Canvas>
+          </div>
+        </div>
+        <div className="flex flex-1 gap-5">
+          <div className="border rounded-tr-xl border-white flex flex-col min-w-60 max-w-60">
+            <div className="flex justify-between p-2 font-bold">
+              <p>001</p>
+              <p>PORTFOLIO v1</p>
+            </div>
+            <hr />
+            <div className="p-2">
+              <p className="font-mono text-sm">
+                This portfolio represents my second endeavor in web design,
+                crafted purely for enjoyment and as a platform for
+                experimentation. It served as a playground for me to apply
+                newfound knowledge and techniques acquired along my learning
+                journey.
+              </p>
+            </div>
+            <hr />
+            <div className="p-2 flex justify-end">
+              <p>Visit Site</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* {projects.map(
         (
           item: {
             description: string;
@@ -104,6 +156,7 @@ function App() {
           index
         ) => (
           <ParallaxImage
+            key={index}
             header={`PRJCT 00${index + 1}`}
             imageSide={index % 2 === 0 ? "R" : "L"}
             description={item.description}
@@ -112,7 +165,7 @@ function App() {
             link={item.link}
           />
         )
-      )}
+      )} */}
       <div className="w-screen h-screen flex flex-col items-center pt-48 lg:p-0 [view-timeline-name:--scale-up-wrapper] relative mt-24">
         <p className="font-serif text-[42px] text-center lg:text-size-header scale-up-text">
           Get in touch with <b>Me</b> !

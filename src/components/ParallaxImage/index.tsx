@@ -30,9 +30,9 @@ const ParallaxImage = ({
             {header}
           </p>
           <p className="max-w-80 text-slate-700">{description}</p>
-          <div className="flex gap-5 text-size-sub-header text-icons">
+          {/* <div className="flex gap-5 text-size-sub-header text-icons">
             {icons.map((item: any) => item)}
-          </div>
+          </div> */}
           {link !== "" && (
             <div
               className="flex gap-3 items-center cursor-pointer hover:font-semibold transition-all text-link w-fit"
