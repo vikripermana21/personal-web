@@ -1,10 +1,10 @@
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
-import { Mesh, RepeatWrapping, TextureLoader, Uniform } from "three";
+import { RepeatWrapping, ShaderMaterial, TextureLoader, Uniform } from "three";
 import PerlinTexture from "../../assets/perlin-texture.png";
 
 const HeroSection = () => {
-  const meshRef = useRef<Mesh>(null!);
+  const shaderRef = useRef<ShaderMaterial>(null!);
 
   const perlinTexture = useLoader(TextureLoader, PerlinTexture);
   perlinTexture.wrapS = RepeatWrapping;
@@ -61,29 +61,27 @@ const HeroSection = () => {
     `;
 
   useFrame((state) => {
-    meshRef.current.material.uniforms.uTime.value =
-      state.clock.getElapsedTime();
+    shaderRef.current.uniforms.uTime.value = state.clock.getElapsedTime();
   });
 
   return (
-    <>
-      <mesh ref={meshRef}>
-        <planeGeometry args={[14, 8, 24, 24]} />
-        <shaderMaterial
-          //   wireframe={true}
-          transparent={true}
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-          uniforms={{
-            uTime: new Uniform(0),
+    <mesh>
+      <planeGeometry args={[resolution.x, resolution.y, 24, 24]} />
+      <shaderMaterial
+        ref={shaderRef}
+        // wireframe={true}
+        transparent={true}
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        uniforms={{
+          uTime: new Uniform(0),
 
-            uMouse: new Uniform(mousePosition),
-            uPerlinTexture: new Uniform(perlinTexture),
-            uResolution: new Uniform(resolution),
-          }}
-        />
-      </mesh>
-    </>
+          uMouse: new Uniform(mousePosition),
+          uPerlinTexture: new Uniform(perlinTexture),
+          uResolution: new Uniform(resolution),
+        }}
+      />
+    </mesh>
   );
 };
 

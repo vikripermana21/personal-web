@@ -24,6 +24,14 @@
 }
 
 @layer components {
+  .cursor {
+    position: absolute;
+    pointer-events: none;
+    width: 24px;
+    height: 24px;
+    z-index: 9999;
+  }
+
   .reveal-text {
     --faded-color: #ffffff;
     --highlighted-color: #333;

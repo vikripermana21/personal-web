@@ -1,10 +1,10 @@
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
-import { Mesh, RepeatWrapping, TextureLoader, Uniform } from "three";
+import { RepeatWrapping, ShaderMaterial, TextureLoader, Uniform } from "three";
 import PerlinTexture from "../../assets/perlin-texture.png";
 
 const RandomDecoration = () => {
-  const meshRef = useRef<Mesh>(null!);
+  const shaderRef = useRef<ShaderMaterial>(null!);
 
   const perlinTexture = useLoader(TextureLoader, PerlinTexture);
   perlinTexture.wrapS = RepeatWrapping;
@@ -55,7 +55,7 @@ const RandomDecoration = () => {
     perlinTexture *= smoothstep(0.0,0.5,vUv.x);
     perlinTexture *= smoothstep(1.0,0.8,vUv.y);
     perlinTexture *= smoothstep(0.0,0.3,vUv.y);
-    vec4 color = vec4(vec3(1.0),step(0.4,perlinTexture));
+    vec4 color = vec4((vUv.x * uMouse.x) * 0.4,(vUv.y * uMouse.y) * 0.4,(uMouse.x * uMouse.y) * 0.4,step(0.4,perlinTexture));
     
     gl_FragColor = color;
      #include <tonemapping_fragment>
@@ -64,15 +64,15 @@ const RandomDecoration = () => {
     `;
 
   useFrame((state) => {
-    meshRef.current.material.uniforms.uTime.value =
-      state.clock.getElapsedTime();
+    shaderRef.current.uniforms.uTime.value = state.clock.getElapsedTime();
   });
 
   return (
     <>
-      <mesh ref={meshRef}>
+      <mesh>
         <planeGeometry args={[14, 8, 24, 24]} />
         <shaderMaterial
+          ref={shaderRef}
           // wireframe={true}
           transparent={true}
           vertexShader={vertexShader}
