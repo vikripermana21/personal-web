@@ -4,6 +4,7 @@ import { useMemo, useRef } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import RandomDecoration from "../RandomDecoration";
+import { TbFaceIdError } from "react-icons/tb";
 
 const ProjectSection = () => {
   const ref = useRef<HTMLDivElement>(null!);
@@ -77,7 +78,7 @@ const ProjectSection = () => {
     ];
   }, []);
   return (
-    <div ref={ref} className="h-[400vh] w-full text-white relative">
+    <div ref={ref} className="h-[500vh] w-full text-white relative">
       <div className="absolute top-[0rem] left-[10rem] text-7xl xl:text-9xl text-three">
         <p className="font-bold">MOVE</p>
       </div>
@@ -139,7 +140,10 @@ const ProjectSection = () => {
                         <p>Preview</p>
                       </div>
                     ) : (
-                      <p>404 Not Found</p>
+                      <div className="flex items-center gap-2">
+                        <TbFaceIdError />
+                        <p>Not Found</p>
+                      </div>
                     )}
                   </div>
                 </div>

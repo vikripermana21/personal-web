@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import "./App.css";
 import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
+import ContactSection from "./components/ContactSection";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
       </div>
       {/* End Text Section */}
       <ProjectSection />
+      <ContactSection />
     </div>
   );
 }
