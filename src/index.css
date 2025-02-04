@@ -2,72 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    @keyframes fill-text {
-        to{
-            background-position-x: 0em, 0 ;
-        }
+@layer base {
+  @keyframes fill-text {
+    to {
+      background-position-x: 0em, 0;
     }
+  }
 
-    @keyframes parallax-movement {
-        to {
-            transform: translateY(70%);
-        }
+  @keyframes parallax-movement {
+    to {
+      transform: translateY(70%);
     }
+  }
 
-    @keyframes scale-up {
-        to{
-            transform: scale(1);
-            opacity: 1;
-        }
+  @keyframes scale-up {
+    to {
+      transform: scale(1);
+      opacity: 1;
     }
+  }
 }
 
-@layer components{
-    .reveal-text{
-    --faded-color:#ccc;
-    --highlighted-color:#333;
-    background-image: linear-gradient(to right,var(--highlighted-color),var(--highlighted-color)),linear-gradient(to right,var(--faded-color),var(--faded-color));
+@layer components {
+  .cursor {
+    position: absolute;
+    pointer-events: none;
+    width: 24px;
+    height: 24px;
+    z-index: 9999;
+  }
+
+  .reveal-text {
+    --faded-color: #ffffff;
+    --highlighted-color: #333;
+    background-image: linear-gradient(
+        to right,
+        var(--highlighted-color),
+        var(--highlighted-color)
+      ),
+      linear-gradient(to right, var(--faded-color), var(--faded-color));
     background-clip: text;
     background-repeat: no-repeat;
-    background-position-x: -400em,0;
+    background-position-x: -400em, 0;
     color: transparent;
     display: inline;
-    animation:fill-text linear both;
+    animation: fill-text linear both;
     animation-timeline: --reveal-wrapper;
     animation-range: entry 200% cover 80%;
-    }
+  }
 
-    .parallax-image{
-        transform: translateY(0px);
-        animation: parallax-movement linear both;
-        animation-timeline: --parallax-wrapper;
-        animation-range: entry 50% cover 80%;
-    }
+  .parallax-image {
+    transform: translateY(0px);
+    animation: parallax-movement linear both;
+    animation-timeline: --parallax-wrapper;
+    animation-range: entry 50% cover 80%;
+  }
 
-    .scale-up-text{
-        transform: scale(0);
-        opacity: 0;
-        animation: scale-up linear both;
-        animation-timeline: --scale-up-wrapper ;
-        animation-range: entry 50% cover 50%;
-    }
-    .scale-up-text-2{
-        opacity: 0;
-        animation: scale-up linear both;
-        animation-timeline: --scale-up-wrapper;
-        animation-range: entry 80% cover 50%;
-    }
+  .scale-up-text {
+    transform: scale(0);
+    opacity: 0;
+    animation: scale-up linear both;
+    animation-timeline: --scale-up-wrapper;
+    animation-range: entry 50% cover 50%;
+  }
+  .scale-up-text-2 {
+    opacity: 0;
+    animation: scale-up linear both;
+    animation-timeline: --scale-up-wrapper;
+    animation-range: entry 80% cover 50%;
+  }
 }
 
 @layer utilities {
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-   /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
