@@ -24,10 +24,10 @@ function App() {
       </AnimatePresence>
       {/* Hero Section */}
       {/* Text Section */}
-      <div className="h-[400vh] [view-timeline-name:--reveal-wrapper]">
+      <div className="h-fit xl:h-[400vh] [view-timeline-name:--reveal-wrapper]">
         <div className="h-screen w-screen sticky top-0 flex items-center justify-center lg:p-72 p-3">
           <motion.div className="relative z-20">
-            <p className="font-mono lg:text-[24px] text-[12px] font-semibold reveal-text z-20">
+            <p className="font-mono lg:text-[24px] text-[12px] font-semibold xl:reveal-text z-20">
               Meet the unstoppable learner, Vikri Permana! This English-speaking
               dynamo tackles challenges with unwavering grit, soaking up
               knowledge like a sponge. When work's done, he flips the switch to
