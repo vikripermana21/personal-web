@@ -3,7 +3,7 @@ import { useMemo, useRef } from "react";
 
 const ContactSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: "all" });
+  const isInView = useInView(ref, { amount: "some" });
 
   const contactList = useMemo(
     () => [
@@ -35,12 +35,12 @@ const ContactSection = () => {
       ref={ref}
       className="w-screen h-screen mt-[-100vh] bg-three z-20 relative flex items-center justify-center font-mono text-white "
     >
-      <div className="absolute bottom-0 w-full flex justify-center p-2 text-white font-mono font-extralight">
+      <div className="absolute bottom-0 w-full flex justify-center p-2 text-white font-mono font-extralight text-xs md:text-base">
         <p>Made with ❤️ - Vikri Permana 2025</p>
       </div>
       <div className="flex-col gap-5">
         {contactList.map((item, index) => (
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" key={index}>
             {isInView && (
               <motion.div
                 key={item.name}
@@ -48,7 +48,7 @@ const ContactSection = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { delay: 0 } }}
                 transition={{ delay: (index + 1) * 0.1 }}
-                className="text-7xl font-serif font-bold relative w-fit group cursor-pointer"
+                className="text-2xl md:text-7xl font-serif font-bold relative w-fit group cursor-pointer"
                 onClick={() => window.open(item.url, "_blank")}
               >
                 <p>{item.name}</p>
